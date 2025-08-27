@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* News Verification App Design System */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@layer base {
+  :root {
+    /* Primary colors - Professional blues for trust */
+    --primary: 214 84% 20%;
+    --primary-foreground: 210 40% 98%;
+    --primary-light: 214 84% 35%;
+    --primary-dark: 214 84% 15%;
+
+    /* Secondary colors - Trustworthy greens */
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 355 25% 95%;
+    --secondary-light: 142 76% 45%;
+    --secondary-dark: 142 76% 25%;
+
+    /* Verification status colors */
+    --verified: 142 76% 36%;
+    --verified-foreground: 355 25% 95%;
+    --suspicious: 45 93% 47%;
+    --suspicious-foreground: 26 83% 14%;
+    --false: 0 84% 60%;
+    --false-foreground: 355 25% 95%;
+
+    /* Neutral colors */
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
+    --muted: 219 14% 96%;
+    --muted-foreground: 219 14% 45%;
+    --accent: 214 32% 91%;
+    --accent-foreground: 222 84% 4.9%;
+
+    /* Interface elements */
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 84% 20%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(214 84% 20%) 0%,
+      hsl(214 84% 35%) 100%
+    );
+    --gradient-card: linear-gradient(
+      135deg,
+      hsl(0 0% 100%) 0%,
+      hsl(219 14% 98%) 100%
+    );
+    --gradient-verified: linear-gradient(
+      135deg,
+      hsl(142 76% 36%) 0%,
+      hsl(142 76% 45%) 100%
+    );
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-verified {
+    background: var(--gradient-verified);
+  }
+
+  .bg-verified {
+    background-color: hsl(var(--verified));
+  }
+  .news-input {
+    @apply w-full min-h-[120px] p-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none;
+  }
+
+  .verification-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .verification-badge.verified {
+    @apply bg-[hsl(var(--verified))] text-[hsl(var(--verified-foreground))];
+  }
+
+  .verification-badge.suspicious {
+    @apply bg-[hsl(var(--suspicious))] text-[hsl(var(--suspicious-foreground))];
+  }
+
+  .verification-badge.false {
+    @apply bg-[hsl(var(--false))] text-[hsl(var(--false-foreground))];
+  }
+
+  .stats-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .feature-card {
+    @apply gradient-card border border-border rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
