@@ -1,6 +1,6 @@
 # VERIFY: Arabic Fake News Detection App
 
-> **VERIFY** is an Arabic fake news detection application that leverages AI to help users identify and analyze the credibility of news articles. Built with a custom fine-tuned AraBERT model, VERIFY provides deep insights into news authenticity, lexical statistics, and cross-verification with trusted sources.
+**VERIFY** is an Arabic fake news detection application that leverages AI to help users identify and analyze the credibility of news articles. Built with a custom fine-tuned AraBERT model, VERIFY provides deep insights into news authenticity, lexical statistics, and cross-verification with trusted sources.
 
 ## Features
 
@@ -40,11 +40,11 @@
 
 
 ## Screenshots
-![home-page](https://drive.usercontent.google.com/download?id=1Q23_Pr_Vc19pW-5kOgknC4AVRatEqeyT)
+![home-page](https://drive.usercontent.google.com/download?id=1vSnS6MPeFCT5Bu3gOjPN24WvE359jPU8)
  :--:
  figure 1: Home page
 
-![news-analysis-page](https://drive.usercontent.google.com/download?id=1vSnS6MPeFCT5Bu3gOjPN24WvE359jPU8)
+![news-analysis-page](https://drive.usercontent.google.com/download?id=1Q23_Pr_Vc19pW-5kOgknC4AVRatEqeyT)
 :--:
  figure 2: News Analysis page
 
