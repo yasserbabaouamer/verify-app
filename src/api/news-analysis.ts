@@ -1,0 +1,17 @@
+import ApiInstance from "../utils/api-instance";
+import type {
+  NewsData,
+  NewsAnalysisResponse,
+  SentenceAnalysis,
+  FormatAnalysis,
+  StyleAnalysis,
+  SensationalAnalysis,
+  TextValidation,
+} from "@/models/api/news";
+
+export async function fetchNewsAnalysis(
+  newsData: NewsData
+): Promise<NewsAnalysisResponse> {
+  const response = await ApiInstance.post("/api/v1/analyse", newsData);
+  return response.data;
+}

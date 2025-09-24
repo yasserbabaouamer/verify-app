@@ -1,5 +1,6 @@
 import { Shield, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -8,30 +9,28 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <Shield className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">
-              VERIFY
-            </span>
+            <span className="text-xl font-bold text-foreground">VERIFY</span>
           </div>
 
           <nav className="hidden md:flex items-center gap-6">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/about"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               About
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/sources"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Sources
-            </a>
+            </Link>
             <Button variant="outline" size="sm">
               Sign In
             </Button>

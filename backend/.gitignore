@@ -1,3 +1,6 @@
 .env
 __pycache__
-afnd-model
+verify-model
+sentiments_model
+venv/
+test.py

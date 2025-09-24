@@ -45,7 +45,7 @@
     /* Gradients */
     --gradient-hero: linear-gradient(
       135deg,
-      hsl(214 84% 20%) 0%,
+      hsl(214, 79%, 27%) 0%,
       hsl(214 84% 35%) 100%
     );
     --gradient-card: linear-gradient(
@@ -123,6 +123,7 @@
 @layer components {
   .gradient-hero {
     background: var(--gradient-hero);
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWWh-0fatuhkzriFcdSE5rFLA0LYCocCkrUep45daw3XG4GUXYF_BTo73KlRvkyiPniFocVsWQwRRvRLGsbvxpozXwxRczVhaG8pKZqMM7UWyRMQP_OOgu_a7zdMrjJLzaNwp6s_c4Tpp1_PLT2zZYhbNpOylJeou6SzYOG2f4OLtp45HbYAZmcLSyojpStcTnGi1Gw4gpAgS9CcnoIyGj-OEOFnwoPZPHePwIOl7_NESUYQYbMJQZBISYkKRWdvErN-vdLEWZYFk");     */
   }
 
   .gradient-card {
@@ -139,6 +140,11 @@
   .news-input {
     @apply w-full min-h-[120px] p-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none;
   }
+/* 
+  .text-input {
+    @apply w-full p-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none;
+  } */
+
 
   .verification-badge {
     @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium;
