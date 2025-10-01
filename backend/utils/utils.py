@@ -30,6 +30,7 @@ def extract_json_from_markdown(text) -> dict:
             json_object = json.loads(json_string)
             return json_object
         except json.JSONDecodeError as e:
+            print("Response text:", text)
             raise Exception(f"Failed to parse JSON: {e}")
     else:
         print("Response text:", text)

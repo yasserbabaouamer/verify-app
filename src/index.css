@@ -8,7 +8,7 @@
 @layer base {
   :root {
     /* Primary colors - Professional blues for trust */
-    --primary: 214 84% 20%;
+    --primary: 210 100% 40%;
     --primary-foreground: 210 40% 98%;
     --primary-light: 214 84% 35%;
     --primary-dark: 214 84% 15%;

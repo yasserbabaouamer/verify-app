@@ -74,7 +74,7 @@ def get_keywords_repetition(text: str):
         })
     # Overall word repetition (not returned, but can be used for further analysis)
     unique_words = len(set(words))
-    overall_repetition = unique_words / total_words if total_words > 0 else 0
+    overall_repetition = 1 - (unique_words / total_words if total_words > 0 else 0)
     return round(overall_repetition, 2), result
 
 

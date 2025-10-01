@@ -69,7 +69,7 @@ const LoadingPage = ({ onComplete }: LoadingPageProps) => {
             <div className="p-3 bg-primary rounded-full">
               <Shield className="h-8 w-8 text-primary-foreground" />
             </div>
-            <h1 className="text-3xl font-bold text-foreground">TruthEngine</h1>
+            <h1 className="text-3xl font-bold text-foreground">BAYANN</h1>
           </div>
           <p className="text-muted-foreground text-lg">
             Verifying your news for accuracy and credibility

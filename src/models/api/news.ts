@@ -15,7 +15,6 @@ export interface Metric {
 export interface FormatAnalysis {
   exclamation: Metric;
   alarmist: Metric;
-  all_caps: Metric;
 }
 
 export interface SentenceAnalysisItem {
@@ -66,6 +65,7 @@ export interface EvaluationMetric {
 
 export interface SourceVerificationResponse {
   url?: string | null;
+  overall?: number | null;
   reputation: EvaluationMetric;
   transparency: EvaluationMetric;
   factual_reporting_history: EvaluationMetric;

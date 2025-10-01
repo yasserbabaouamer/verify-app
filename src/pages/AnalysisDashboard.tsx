@@ -9,8 +9,11 @@ import {
   Building,
   CheckCircle,
   ArrowRight,
+  XCircle,
+  BadgeAlert,
 } from "lucide-react";
 
+import { NewsPrediction } from "@/utils/enums";
 import { useNavigate } from "react-router-dom";
 import useAnalysisStore from "@/store";
 
@@ -46,6 +49,50 @@ export default function AnalysisDashboard() {
     },
   ];
 
+  const renderBadge = () => {
+    if (analysis.prediction === NewsPrediction.LIKELY_REAL) {
+      return (
+        <div className="relative flex size-48 items-center justify-center rounded-full border-4 border-green-200 dark:border-green-800 bg-card shadow-md">
+          <ShieldCheck className="h-20 w-20 text-green-500 dark:text-green-400" />
+        </div>
+      );
+    }
+    if (analysis.prediction === NewsPrediction.LIKELY_FAKE) {
+      return (
+        <div className="relative flex size-48 items-center justify-center rounded-full border-4 border-red-200 dark:border-red-800 bg-card shadow-md">
+          <XCircle className="h-20 w-20 text-red-500 dark:text-red-400" />
+        </div>
+      );
+    }
+    return (
+      <div className="relative flex size-48 items-center justify-center rounded-full border-4 border-orange-200 dark:border-orange-800 bg-card shadow-md">
+        <BadgeAlert className="h-20 w-20 text-orange-500 dark:text-orange-400" />
+      </div>
+    );
+  };
+
+  const renderConfidenceBadge = () => {
+    if (analysis.prediction === NewsPrediction.LIKELY_REAL)
+      return (
+        <Badge className="rounded-full bg-green-100 dark:bg-green-900/20 px-4 py-1 text-sm font-medium text-green-700 dark:text-green-300">
+          {analysis.confidence}% Confidence
+        </Badge>
+      );
+
+    if (analysis.prediction === NewsPrediction.LIKELY_FAKE)
+      return (
+        <Badge className="rounded-full bg-red-100 dark:bg-red-900/20 px-4 py-1 text-sm font-medium text-red-700 dark:text-red-300">
+          {analysis.confidence}% Confidence
+        </Badge>
+      );
+
+    return (
+      <Badge className="rounded-full bg-orange-100 dark:bg-orange-900/20 px-4 py-1 text-sm font-medium text-orange-700 dark:text-orange-300">
+        {analysis.confidence}% Confidence
+      </Badge>
+    );
+  };
+
   return (
     <div className="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
       <Header />
@@ -69,9 +116,7 @@ export default function AnalysisDashboard() {
           <Card className="rounded-3xl border shadow-lg p-6 sm:p-8">
             <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
               <div className="flex flex-col items-center text-center md:items-start md:text-left">
-                <Badge className="rounded-full bg-green-100 dark:bg-green-900/20 px-4 py-1 text-sm font-medium text-green-700 dark:text-green-300">
-                  {analysis.confidence}% Confidence
-                </Badge>
+                {renderConfidenceBadge()}
                 <h2
                   className="mt-4 text-3xl sm:text-4xl font-bold text-foreground"
                   data-testid="confidence-rating"
@@ -88,9 +133,7 @@ export default function AnalysisDashboard() {
 
               <div className="relative flex h-64 items-center justify-center">
                 <div className="absolute h-full w-full rounded-full bg-green-100 dark:bg-green-900/20 blur-3xl opacity-50"></div>
-                <div className="relative flex size-48 items-center justify-center rounded-full border-4 border-green-200 dark:border-green-800 bg-card shadow-md">
-                  <ShieldCheck className="h-20 w-20 text-green-500 dark:text-green-400" />
-                </div>
+                {renderBadge()}
               </div>
             </div>
           </Card>

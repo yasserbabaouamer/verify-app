@@ -12,14 +12,14 @@ export function FormattingCard({
 }: {
   formatAnalysis: FormatAnalysis;
 }) {
-  const getColorClass = (color: string) => {
+  const getColorClass = (label: string) => {
     const colorMap: any = {
       Alarmist: "text-red-600",
       Noticeable: "text-orange-600",
       Normal: "text-green-600",
       black: "text-gray-900",
     };
-    return colorMap[color];
+    return colorMap[label];
   };
 
   const metrics: FormattingMetric[] = [
@@ -35,12 +35,12 @@ export function FormattingCard({
       category: formatAnalysis.alarmist.label,
       color: getColorClass(formatAnalysis.alarmist.label),
     },
-    {
-      label: "All Caps Ratio",
-      value: formatAnalysis.all_caps.rate,
-      category: formatAnalysis.all_caps.label,
-      color: getColorClass(formatAnalysis.all_caps.label),
-    },
+    // {
+    //   label: "All Caps Ratio",
+    //   value: formatAnalysis.all_caps.rate,
+    //   category: formatAnalysis.all_caps.label,
+    //   color: getColorClass(formatAnalysis.all_caps.label),
+    // },
   ];
 
   return (

@@ -1,6 +1,7 @@
-# VERIFY: Arabic Fake News Detection App
+# BAYANN: Arabic Fake News Detection App
 
-**VERIFY** is an Arabic fake news detection application that leverages AI to help users identify and analyze the credibility of news articles. Built with a custom fine-tuned AraBERT model, VERIFY provides deep insights into news authenticity, lexical statistics, and cross-verification with trusted sources.
+**BAYANN** is an Arabic fake news detection application that leverages AI to help users identify and analyze the credibility of news articles. 
+BAYANN provides deep insights into news content, source authenticity, and cross-verification with trusted sources.
 
 ## Features
 
@@ -25,7 +26,6 @@
   - FastAPI
   - PyTorch
   - AraBERT (fine-tuned)
-  - Sentence Transformers
 - **AI & NLP:**
   - AraBERT for Arabic language understanding
   - Custom fine-tuning on a large, diverse dataset
@@ -40,13 +40,30 @@
 
 
 ## Screenshots
-![home-page](https://drive.usercontent.google.com/download?id=1vSnS6MPeFCT5Bu3gOjPN24WvE359jPU8)
+![home-page](https://drive.usercontent.google.com/download?id=1wNDq4lgAW2hCOlMTvEYRIsnQLWLugZRo)
  :--:
- figure 1: Home page
+ Figure 1: Home page
 
-![news-analysis-page](https://drive.usercontent.google.com/download?id=1Q23_Pr_Vc19pW-5kOgknC4AVRatEqeyT)
+
+![analysis-dashboard](https://drive.usercontent.google.com/download?id=14e65rvePa0Y_FDNgyTF9SPdZwM0i3yxc)
 :--:
- figure 2: News Analysis page
+ Figure 2: Analysis Result Dashboard
+
+
+![content-analysis](https://drive.usercontent.google.com/download?id=14e65rvePa0Y_FDNgyTF9SPdZwM0i3yxc)
+:--:
+ Figure 3: News Content Analysis
+
+
+![source-verification](https://drive.usercontent.google.com/download?id=14e65rvePa0Y_FDNgyTF9SPdZwM0i3yxc)
+:--:
+ Figure 4: Source Verification
+
+
+![cross-check](https://drive.usercontent.google.com/download?id=14e65rvePa0Y_FDNgyTF9SPdZwM0i3yxc)
+:--:
+ Figure 5: Cross Check over Trustful Medias and Fact-check databases.
+
 
 
 ## Reflection
@@ -56,7 +73,7 @@ This project was developed as a final project for the NLP class, with the object
 - **Data Collection:** Started by gathering diverse Arabic news resources.
 - **Preprocessing Pipeline:** News articles were processed through several NLP steps: removing tags, tokenization, handling Arabic-specific syntax, performing Named Entity Recognition (NER), and lemmatization.
 - **Model Training:** Prepared the AraBERT model, passed the processed data, and trained the model.
-- **Results:** The model achieved 82% accuracy, with 81% precision, 81% recall, and 81% F1-score.
+- **Results:** The model achieved 92% accuracy, with 92% precision, 92% recall, and 92% F1-score.
 - **Web Search Integration:** Integrated the Gemini web search agent for cross-validating news articles against trusted sources.
 
 

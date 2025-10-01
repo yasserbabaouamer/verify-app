@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +11,7 @@ import {
   Globe,
   Zap,
   Brain,
+  ArrowRight,
 } from "lucide-react";
 import { NewsInput } from "@/components/NewsInput";
 import { FeatureCard } from "@/components/FeatureCard";
@@ -20,6 +21,7 @@ import { fetchNewsAnalysis } from "@/api/news-analysis";
 import type { NewsData } from "@/models/api/news";
 import LoadingPage from "@/components/LoadingPage";
 import useAnalysisStore from "@/store";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const [headline, setHeadline] = useState("");
@@ -27,6 +29,9 @@ const Index = () => {
   const [url, setUrl] = useState<string | undefined>();
   const [date, setDate] = useState<string | undefined>();
   const [isVerifying, setIsVerifying] = useState(false);
+  const newsInputRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
+
   const navigate = useNavigate();
   const { setAnalysis } = useAnalysisStore();
 
@@ -94,45 +99,71 @@ const Index = () => {
   if (isVerifying) return <LoadingPage onComplete={() => {}} />;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="relative min-h-screen bg-background flex flex-col">
+      <div className="absolute top-0 -left-4 w-72 h-72 bg-primary/20 dark:bg-primary/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+      <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-400/20 dark:bg-yellow-300/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
       <Header />
-
       {/* Hero Section */}
-      <section
-        className="gradient-hero text-primary-foreground py-20"
-        // className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4 shadow-lg"
-      >
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Shield className="h-12 w-12" />
-              <h1 className="text-5xl font-bold text-balance">TruthEngine</h1>
+      <section className="pt-20">
+        <div className="container min-h-screen flex flex-col items-center mx-auto px-4">
+          <div className="max-w-4xl mx-auto py-12 text-center animate-fade-in">
+            {/* Hero Title */}
+            <div className="flex items-center text-gray-800 justify-center gap-3 mb-6">
+              {/* <Shield className="h-12 w-12" /> */}
+              <h1 className="text-6xl font-bold tracking-tight">
+                Separate Fact from Fiction with BAYANN
+              </h1>
             </div>
-            <p className="text-xl mb-8 text-primary-foreground/90 text-balance max-w-2xl mx-auto leading-relaxed">
-              Combat misinformation with AI-powered news verification. Get
-              instant credibility analysis, source verification, and detailed
-              linguistic insights.
+            {/* Hero text */}
+            <p className="w-full text-xl mb-8 text-gray-500 leading-relaxed">
+              Your intelligent shield against misinformation. Quickly verify
+              news, articles, and social media posts to stay informed with the
+              truth.
             </p>
+            {/* Features */}
             <div className="flex items-center justify-center gap-4 mb-8">
-              <Badge className="bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30">
+              <Badge className="bg-white text-gray-800 border-primary/30 py-1">
                 <CheckCircle className="h-4 w-4 mr-1" />
                 AI-Powered
               </Badge>
-              <Badge className="bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30">
+              <Badge className="bg-primary-foreground/20 text-gray-800 border-primary/30 py-1">
                 <Shield className="h-4 w-4 mr-1" />
                 Trusted Sources
               </Badge>
-              <Badge className="bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30">
+              <Badge className="bg-primary-foreground/20 text-gray-800 border-primary/30 py-1">
                 <Zap className="h-4 w-4 mr-1" />
                 Instant Results
               </Badge>
+            </div>
+            {/* CTA buttons */}
+            <div className="flex items-center justify-center gap-4 py-6">
+              <Button
+                className="bg-primary text-primary-foreground"
+                onClick={() => {
+                  newsInputRef.current?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Let's Verify Now
+              </Button>
+              <Button
+                className="bg-primary-foreground text-gray-800"
+                onClick={() => {
+                  featuresRef.current?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Learn more <ArrowRight />{" "}
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* News Input Section */}
-      <section className="py-16 bg-background">
+      <section
+        id="news-input"
+        ref={newsInputRef}
+        className="pt-8 pb-16 bg-background"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <Card className="gradient-card border-0 shadow-xl p-8 animate-slide-up">
@@ -164,7 +195,7 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-muted/30">
+      <section ref={featuresRef} className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">

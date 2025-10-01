@@ -36,7 +36,7 @@ class SensationalAnalysis(BaseModel):
 class FormatAnalysis(BaseModel):
     exclamation: Metric
     alarmist: Metric
-    all_caps: Metric
+    # all_caps: Metric
 
 
 class Word(BaseModel):
@@ -78,6 +78,7 @@ class EvaluationMetric(BaseModel):
 ## Source Verification
 class SourceVerificationResponse(BaseModel):
     url: Optional[str] = None
+    overall: float | None
     reputation: EvaluationMetric
     transparency: EvaluationMetric
     factual_reporting_history:EvaluationMetric

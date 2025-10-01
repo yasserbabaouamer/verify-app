@@ -35,16 +35,11 @@ export default function Home() {
             </p>
           </div>
 
-          <VerificationCard />
+          <VerificationCard overall={analysis?.overall} />
           <AnalysisDetails analysis={analysis} />
 
           <div className="mt-12">
-            <Stepper
-              leftText=""
-              leftTo="/analysis/content"
-              rightText="Let's cross-check"
-              rightTo="/analysis/cross-check"
-            />
+            <Stepper currentPage="SOURCE_VERIFICATION" />
           </div>
         </div>
       </main>

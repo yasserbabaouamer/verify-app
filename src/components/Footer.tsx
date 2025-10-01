@@ -9,7 +9,7 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <Shield className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold">VERIFY</span>
+              <span className="text-2xl font-bold">BAYANN</span>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
               Combat misinformation with AI-powered news verification. Get
@@ -18,7 +18,7 @@ export const Footer = () => {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="mailto:contact@truthengine.com"
+                href="mailto:contact@verify.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-5 w-5" />
@@ -120,7 +120,7 @@ export const Footer = () => {
         <div className="border-t border-border pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              © 2024 VERIFY. All rights reserved.
+              © 2024 BAYANN. All rights reserved.
             </p>
             <p className="text-muted-foreground text-sm">
               Powered by AI • Verified by Experts

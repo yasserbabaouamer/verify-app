@@ -1,6 +1,4 @@
-import cProfile
 
-from line_profiler import profile
 from .formatting_service import get_formatting_features
 from .lexical_service import get_word_and_sentence_count, get_keywords_repetition, get_spelling_analysis
 from .prediction_service import get_prediction_label, predict_text
@@ -38,7 +36,7 @@ def analyse_news(news: NewsSchema) -> NewsContentAnalysis:
     polarity, objectivity = get_sentiments(f"{clean_headline} {clean_body}")
     
     # Formatting analysis (exclamation, alarmist, all-caps)
-    format_features, formatting_score = get_formatting_features(news.headline, news.body)
+    format_features, _ = get_formatting_features(news.headline, news.body)
     
     # Stylistic and lexical analysis (misspelling, repetition, uniqueness)
     words_count, sents_count = get_word_and_sentence_count(f"{news.headline} {news.body}")
@@ -68,13 +66,12 @@ def analyse_news(news: NewsSchema) -> NewsContentAnalysis:
         format_analysis=FormatAnalysis(
             exclamation=Metric(rate=format_features['exclamation']['rate'], label=format_features['exclamation']['label']),
             alarmist=Metric(rate=format_features['alarmist']['rate'], label=format_features['alarmist']['label']),
-            all_caps=Metric(rate=format_features['all_caps']['rate'], label=format_features['all_caps']['label']),
         ),
         style_analysis=StyleAnalysis(
             words_count=words_count,
             sents_count=sents_count,
-            spelling_accuracy=spelling_accuracy,
-            keyword_repetition_rate=keyword_repetition_ratio,
+            spelling_accuracy=spelling_accuracy * 100,
+            keyword_repetition_rate=keyword_repetition_ratio * 100,
             most_repeated_words=most_frequent_words
         )
     )

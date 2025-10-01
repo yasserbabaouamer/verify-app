@@ -5,7 +5,7 @@ from schemas import EvaluationMetric, SourceVerificationResponse
 from utils.utils import extract_json_from_markdown, model_id, google_search_tool
 
 google_search_tool = Tool(
-        google_search=GoogleSearch()
+    google_search=GoogleSearch()
 )
 
 
@@ -14,6 +14,7 @@ async def verify_source(url: str | None) -> SourceVerificationResponse:
     if not url:
         return SourceVerificationResponse(
             url=None,
+            overall=None,
             reputation=EvaluationMetric(score=0, reason="No URL provided"),
             transparency=EvaluationMetric(score=0, reason="No URL provided"),
             factual_reporting_history=EvaluationMetric(score=0, reason="No URL provided"),
@@ -42,7 +43,7 @@ async def verify_source(url: str | None) -> SourceVerificationResponse:
     Step 2: Gather information about the source website.
     Step 3: Analyze the information and propose an evaluation, challenging each other’s reasoning, and arriving at balanced judgments. Justify conclusions with available data and avoid bias.
     Step 4: Provide a final consensus in a structured JSON object, assigning a score from 0 to 100 and reasoning for each metric as follows:
-        {{
+        {{ 
             "reputation": {{ "score": int, "reason": "string" }},
             "transparency": {{ "score": int, "reason": "string" }},
             "factual_reporting_history": {{ "score": int, "reason": "string" }},
@@ -59,5 +60,10 @@ async def verify_source(url: str | None) -> SourceVerificationResponse:
             ),
         )
     output: dict = extract_json_from_markdown(response.text)
+    # Calculate overall rating
+    overall = (output['reputation']['score'] * 0.35 + output['factual_reporting_history']['score'] * 0.30 +
+                output['editorial_standards']['score'] * 0.2 + output['transparency']['score'] * 0.15)
+    # Include overall and url
+    output['overall'] = overall
     output['url'] = url
     return SourceVerificationResponse(**output)

@@ -35,7 +35,7 @@ function NewsContentAnalysis() {
               <div className="space-y-8 lg:col-span-2">
                 <ConfidenceLevelCard
                   confidence={analysis.confidence}
-                  prediction={NewsPrediction.LIKELY_FAKE}
+                  prediction={analysis.prediction}
                 />
                 <HighlightedSentencesCard
                   headline_sentences={
@@ -85,16 +85,7 @@ function NewsContentAnalysis() {
             </div>
 
             <div className="mt-12">
-              <Stepper
-                leftText=""
-                leftTo="/analysis"
-                rightText="Let's analyze the source"
-                rightTo={
-                  store.analysis.source_verification?.url
-                    ? "/analysis/source"
-                    : "/analysis/cross-check"
-                }
-              />
+              <Stepper currentPage="NEWS_CONTENT" />
             </div>
           </div>
         </main>

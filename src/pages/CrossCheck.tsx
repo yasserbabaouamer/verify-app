@@ -6,47 +6,37 @@ import { CheckCircle, XCircle, ExternalLink, Check } from "lucide-react";
 import { Stepper } from "@/components/Stepper";
 import useAnalysisStore from "@/store";
 
-interface VerificationData {
-  source: string;
-  result: "Agreement" | "Disagreement";
-  link: string;
-  linkText: string;
-}
-
 export default function VerificationResults() {
   const store = useAnalysisStore();
   const analysis = store.analysis.cross_check;
 
-  const factCheckDatabases: VerificationData[] = [
-    {
-      source: "Politifact",
-      result: "Agreement",
-      link: "#",
-      linkText: "View Fact-Check",
-    },
-    {
-      source: "Snopes",
-      result: "Disagreement",
-      link: "#",
-      linkText: "View Fact-Check",
-    },
-  ];
-
   const getResultBadge = (result: string) => {
-    if (result === "Agreement") {
-      return (
-        <Badge className="inline-flex items-center gap-2 rounded-full bg-green-100 dark:bg-green-900/20 px-3 py-1 text-sm font-medium text-green-800 dark:text-green-400">
-          <CheckCircle className="h-4 w-4" />
-          Agreement
-        </Badge>
-      );
-    } else {
-      return (
-        <Badge className="inline-flex items-center gap-2 rounded-full bg-red-100 dark:bg-red-900/20 px-3 py-1 text-sm font-medium text-red-800 dark:text-red-400">
-          <XCircle className="h-4 w-4" />
-          Disagreement
-        </Badge>
-      );
+    switch (result) {
+      case "Agreement": {
+        return (
+          <Badge className="inline-flex items-center gap-2 rounded-full bg-green-100 dark:bg-green-900/20 px-3 py-1 text-sm font-medium text-green-800 dark:text-green-400">
+            <CheckCircle className="h-4 w-4" />
+            Agreement
+          </Badge>
+        );
+      }
+      case "Disagreement": {
+        return (
+          <Badge className="inline-flex items-center gap-2 rounded-full bg-red-100 dark:bg-red-900/20 px-3 py-1 text-sm font-medium text-red-800 dark:text-red-400">
+            <XCircle className="h-4 w-4" />
+            Disagreement
+          </Badge>
+        );
+      }
+
+      case "Not mentioned": {
+        return (
+          <Badge className="inline-flex items-center gap-2 rounded-full bg-red-100 dark:bg-red-900/20 px-3 py-1 text-sm font-medium text-red-800 dark:text-red-400">
+            <XCircle className="h-4 w-4" />
+            Not mentioned
+          </Badge>
+        );
+      }
     }
   };
 
@@ -162,13 +152,7 @@ export default function VerificationResults() {
           </section>
 
           <div className="mt-12">
-            <Stepper
-              leftText=""
-              leftTo="/analysis/source"
-              rightText="Finish analysis"
-              rightIcon={<Check className="h-5 w-5" />}
-              rightTo="/analysis"
-            />
+            <Stepper currentPage="CROSS_CHECK" />
           </div>
         </div>
       </main>

@@ -5,8 +5,8 @@ export function ContributionRatioCard({
   headline: number;
   body: number;
 }) {
-  const bodyPercentage = body * 100;
-  const headlinePercentage = headline * 100;
+  const bodyPercentage = body;
+  const headlinePercentage = headline;
 
   // Calculate stroke-dasharray for the circles
   const circumference = 2 * Math.PI * 15.9155;

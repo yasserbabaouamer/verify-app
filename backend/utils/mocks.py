@@ -1,4 +1,4 @@
-from schemas import NewsAnalysisResponse
+from schemas import CrossCheckResponse, EvaluationMetric, FactCheckResponse, MediaCheckResponse, NewsAnalysisResponse, SourceVerificationResponse
 from schemas import FormatAnalysis, Metric, NewsAnalysisResponse, NewsContentAnalysis, SensationalAnalysis, SentenceAnalysis, SentenceAnalysisItem, StyleAnalysis, Word
 
 
@@ -39,10 +39,6 @@ def mock_news_analysis() -> NewsAnalysisResponse:
                         rate=15,
                         label='Alarmist'
                     ),
-                    all_caps=Metric(
-                        rate=20,
-                        label='Noticeable'
-                    )
                 ),
                 style_analysis=StyleAnalysis(
                     words_count=15,
@@ -56,6 +52,48 @@ def mock_news_analysis() -> NewsAnalysisResponse:
                     ]
                 )
             ),
-            source_verification=None,
-            cross_check=None
+            source_verification=SourceVerificationResponse(
+                url="http://example.com/news/123",
+                overall=75,
+                reputation=EvaluationMetric(score=78, reason="Generally positive reputation with some mixed reviews"),
+                transparency=EvaluationMetric(score=65, reason="Moderate"),
+                factual_reporting_history=EvaluationMetric(score=80, reason="High"),
+                editorial_standards=EvaluationMetric(score=70, reason="Moderate"),
+            ),
+            cross_check=CrossCheckResponse(
+                fact_check_dbs=[
+                    FactCheckResponse(
+                        name="Snopes",
+                        check="Not Mentioned",
+                        url=None,
+                    ),
+                    FactCheckResponse(
+                        name="FactCheck.org",
+                        check="Not Mentioned",
+                        url=None,
+                    ),
+                    FactCheckResponse(
+                        name="PolitiFact",
+                        check="Not Mentioned",
+                        url=None,
+                    )
+                ],
+                media=[
+                    MediaCheckResponse(
+                        name="Al Jazeera",
+                        check="Mentioned",
+                        url="http://aljazeera.com/article/xyz",
+                    ),
+                    MediaCheckResponse(
+                        name="BBC",
+                        check="Not Mentioned",
+                        url=None,
+                    ),
+                    MediaCheckResponse(
+                        name="Reuters",
+                        check="Mentioned",
+                        url="http://reuters.com/article/abc",
+                    )
+                ],
+            )
     )

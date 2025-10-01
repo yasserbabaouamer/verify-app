@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,17 +17,17 @@ interface NewsInputProps {
   isVerifying: boolean;
 }
 
-export const NewsInput = ({ 
-  headline, 
-  body, 
-  url, 
-  date, 
-  onHeadlineChange, 
-  onBodyChange, 
-  onUrlChange, 
-  onDateChange, 
-  onVerify, 
-  isVerifying 
+export const NewsInput = ({
+  headline,
+  body,
+  url,
+  date,
+  onHeadlineChange,
+  onBodyChange,
+  onUrlChange,
+  onDateChange,
+  onVerify,
+  isVerifying,
 }: NewsInputProps) => {
   const totalLength = headline.length + body.length;
   const hasContent = headline.trim() && body.trim();
@@ -45,6 +44,7 @@ export const NewsInput = ({
             placeholder="Enter the news headline..."
             value={headline}
             onChange={(e) => onHeadlineChange(e.target.value)}
+            dir="auto"
           />
         </div>
 
@@ -60,6 +60,7 @@ export const NewsInput = ({
               value={body}
               onChange={(e) => onBodyChange(e.target.value)}
               rows={6}
+              dir="auto"
             />
             <div className="absolute bottom-3 right-3 text-sm text-muted-foreground">
               {totalLength}/5000 characters
@@ -94,12 +95,12 @@ export const NewsInput = ({
           </div>
         </div>
       </div>
-      
+
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
         <div className="text-sm text-muted-foreground">
           Supports: News articles, headlines, social media posts, and claims
         </div>
-        
+
         <Button
           onClick={onVerify}
           disabled={!hasContent || isVerifying}
@@ -119,7 +120,7 @@ export const NewsInput = ({
           )}
         </Button>
       </div>
-      
+
       {isVerifying && (
         <div className="bg-accent/50 rounded-lg p-4 animate-pulse-slow">
           <div className="text-sm text-center text-muted-foreground">

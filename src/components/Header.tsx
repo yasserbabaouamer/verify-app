@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+    <header className="backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <Shield className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">VERIFY</span>
+            <span className="text-xl font-bold text-foreground">BAYANN</span>
           </div>
 
           <nav className="hidden md:flex items-center gap-6">
