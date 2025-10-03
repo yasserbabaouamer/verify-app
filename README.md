@@ -1,88 +1,135 @@
-# BAYANN: Arabic Fake News Detection App
 
-**BAYANN** is an Arabic fake news detection application that leverages AI to help users identify and analyze the credibility of news articles. 
+# BAYANN: Fake News Detection App
+
+**BAYANN** is an Arabic fake news detection application that leverages AI to help users identify and analyze the credibility of news articles.
 BAYANN provides deep insights into news content, source authenticity, and cross-verification with trusted sources.
 
 ## Features
 
-- **Fake News Detection:**
-  - Utilizes a fine-tuned AraBERT model trained on 10,000+ labeled news articles (real and fake) for high-accuracy predictions.
-- **Lexical Analysis:**
-  - Provides detailed statistics such as counts of nouns, verbs, adjectives, adverbs, unique words, and total words in the news text.
-- **Accuracy & Confidence Scores:**
-  - Displays the model's confidence in its predictions, helping users understand the reliability of the result.
-- **Source Validation:**
-  - Uses the Gemini web search agent to validate news content against trusted sources, offering an extra layer of verification.
-- **Modern UI:**
-  - Built with React and Tailwind CSS for a clean, responsive, and user-friendly experience.
+- **News Content Analysis**
+  - Shows the overall prediction for the news article.
+  - Highlights sentences' predictions.
+  - Provides sensational analysis and lexical/stylistic analysis.
+
+- **Source Verification**
+  - Checks the source's reputation, transparency, factual reporting history, and editorial standards.
+
+- **Cross-Checking**
+  - Verifies the news against well-known trustful media sources.
+  - Checks the news over famous fact-check databases.
 
 ## Tech Stack
 
-- **Frontend:**
-  - React
-  - Tailwind CSS
-- **Backend:**
-  - Python
-  - FastAPI
-  - PyTorch
-  - AraBERT (fine-tuned)
-- **AI & NLP:**
-  - AraBERT for Arabic language understanding
-  - Custom fine-tuning on a large, diverse dataset
-- **Web Search Integration:**
-  - Gemini web search agent for real-time source validation
+**Frontend**
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+
+**Backend**
+- Python
+- FastAPI
+
+**AI & NLP**
+- AraBERT (fine-tuned for Arabic news)
+- CAMel tools for text preprocessing
+- PyTorch
+- Transformers (Hugging Face)
+- Gemini agent for source validation and cross-checking
+
 
 
 ## Project Structure
 
-- `frontend/` — React app (UI, components, styles)
-- `backend/` — FastAPI app (API, model inference, web search)
-
+- `/` — React app (UI, components, styles)
+- `backend/` — FastAPI app (API, model inference, source verification, cross-checking)
 
 ## Screenshots
-![home-page](https://drive.usercontent.google.com/download?id=1wNDq4lgAW2hCOlMTvEYRIsnQLWLugZRo)
- :--:
- Figure 1: Home page
+![Home page](https://drive.usercontent.google.com/download?id=1wNDq4lgAW2hCOlMTvEYRIsnQLWLugZRo)
+*Figure 1: Home page*
+
+![Analysis Dashboard](https://drive.usercontent.google.com/download?id=1e6yvQ51IegebELlRue_A5GhcLtIlwHRt)
+*Figure 2: Analysis Result Dashboard*
+
+![Content Analysis](https://drive.usercontent.google.com/download?id=1-rv13NMy7Axu1lwbkwLu4xTEs1ETQXBj)
+*Figure 3: News Content Analysis*
 
 
-![analysis-dashboard](https://drive.usercontent.google.com/download?id=14e65rvePa0Y_FDNgyTF9SPdZwM0i3yxc)
-:--:
- Figure 2: Analysis Result Dashboard
+![Source Verification](https://drive.usercontent.google.com/download?id=1BWd6R-PDyui3ZRmFJ0F6Q74WdW38qR2a)
+*Figure 4: Source Verification*
 
 
-![content-analysis](https://drive.usercontent.google.com/download?id=14e65rvePa0Y_FDNgyTF9SPdZwM0i3yxc)
-:--:
- Figure 3: News Content Analysis
+![Cross-Check](https://drive.usercontent.google.com/download?id=1WC-vKLJAq3qFz3UMS3tcW_8mbxcHN-f1)
+*Figure 5: Cross-Check over Trustful Media and Fact-Check Databases*
 
+## General Workflow
 
-![source-verification](https://drive.usercontent.google.com/download?id=14e65rvePa0Y_FDNgyTF9SPdZwM0i3yxc)
-:--:
- Figure 4: Source Verification
-
-
-![cross-check](https://drive.usercontent.google.com/download?id=14e65rvePa0Y_FDNgyTF9SPdZwM0i3yxc)
-:--:
- Figure 5: Cross Check over Trustful Medias and Fact-check databases.
+1. **User Input:** Enter the news article, its URL, and the date.
+2. **Content Analysis:** The app predicts the overall credibility, highlights sentence-level predictions, and provides lexical, stylistic, and sensational analysis.
+3. **Source Verification:** The app checks the source's reputation, transparency, factual reporting history, and editorial standards.
+4. **Cross-Checking:** The app verifies the news against trusted media sources and fact-check databases.
 
 
 
 ## Reflection
 
-This project was developed as a final project for the NLP class, with the objective of designing a solution to detect fake news in Arabic.
-
-- **Data Collection:** Started by gathering diverse Arabic news resources.
-- **Preprocessing Pipeline:** News articles were processed through several NLP steps: removing tags, tokenization, handling Arabic-specific syntax, performing Named Entity Recognition (NER), and lemmatization.
-- **Model Training:** Prepared the AraBERT model, passed the processed data, and trained the model.
-- **Results:** The model achieved 92% accuracy, with 92% precision, 92% recall, and 92% F1-score.
-- **Web Search Integration:** Integrated the Gemini web search agent for cross-validating news articles against trusted sources.
+**BAYANN** was developed as a capstone project for an NLP class, with the goal of building a practical solution for fake news detection in Arabic media. The project combines modern AI techniques, robust engineering, and thoughtful user experience design to address the challenge of news verification.
 
 
-## Credits
+#### Highlights
 
-- **AraBERT:** [https://github.com/aub-mind/arabert](https://github.com/aub-mind/arabert)
-- **Sentence Transformers:** [https://www.sbert.net/](https://www.sbert.net/)
-- **Gemini Web Search**
+- **Data Collection:**
+  - Gathered diverse Arabic news resources to ensure a robust and representative dataset.
+
+- **Preprocessing:**
+  - Applied NLP steps including tag removal, cleaning special characters, handling Arabic syntax, and tokenization for high-quality input.
+
+- **Model Training:**
+  - Fine-tuned AraBERT on the processed data, achieving:
+    - **92% Accuracy**
+    - **92% Precision**
+    - **92% Recall**
+    - **92% F1-score**
+
+- **Prompt Engineering:**
+  - Designed effective prompts for the Gemini agent to enhance cross-validation capabilities and improve source verification.
+
+- **Backend Development:**
+  - Built a FastAPI backend for model inference, source verification, cross-checking, and generating meaningful statistics.
+
+- **Frontend Development:**
+  - Developed a user-friendly interface using React and Tailwind CSS for seamless user experience.
+
+
+
+#### Challenges Faced
+
+**1. Building a Pre-processing Pipeline Aligned with Model Requirements**
+AraBERT requires inputs in a very specific tokenized and normalized format. To ensure compatibility, we developed a preprocessing pipeline that:
+- Normalizes Arabic text while handling languages-specific features.
+- Removes irrelevant noise while preserving key linguistic cues essential for detecting misinformation.
+- Segments the text properly to match the model's expected input format.
+
+**2. Designing Effective Prompts for the Agent**
+For source verification and cross-checking, the app integrates Gemini agent with web access tools. The challenge was ensuring **accuracy and consistency** in the outputs. To address this, we experimented with advanced prompting strategies such as:
+- **Chain-of-Thought (CoT)** for structured reasoning.
+- **Role-based prompting** to guide the model’s perspective.
+- **Decoding techniques** (e.g., temperature control) to balance creativity with reliability.
+
+**3. Delivering User-Friendly Analytical Results**
+Raw metric values are not always meaningful to end users. The challenge was to **translate complex model outputs into clear, actionable insights**. We solved this by:
+- Designing formulas and threshold ranges for each metric based on research and empirical testing.
+- Categorizing outcomes (e.g., _Normal_, _Suspicious_, _High-Risk_).
+- Incorporating both headline and body contributions to reflect realistic news structures.
+
+
+## Acknowledgements
+
+- [AraBERT](https://huggingface.co/aubmindlab/bert-base-arabertv2)
+- [Gemini](https://ai.google.dev/gemini-api/docs)
 
 ## License
+This code is provided solely for educational and reference purposes. Any reproduction, modification, distribution, or other use requires prior permission from the author.
 
-This project is licensed under the MIT License.
+## Contact
+For inquiries or support, please contact me at [yasser.babaouamer@gmail.com](mailto:yasser.babaouamer@gmail.com).
