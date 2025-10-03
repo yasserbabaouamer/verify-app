@@ -46,20 +46,25 @@ BAYANN provides deep insights into news content, source authenticity, and cross-
 
 ## Screenshots
 ![Home page](https://drive.usercontent.google.com/download?id=1wNDq4lgAW2hCOlMTvEYRIsnQLWLugZRo)
+:--:
 *Figure 1: Home page*
 
 ![Analysis Dashboard](https://drive.usercontent.google.com/download?id=1e6yvQ51IegebELlRue_A5GhcLtIlwHRt)
+:--:
 *Figure 2: Analysis Result Dashboard*
 
 ![Content Analysis](https://drive.usercontent.google.com/download?id=1-rv13NMy7Axu1lwbkwLu4xTEs1ETQXBj)
+:--:
 *Figure 3: News Content Analysis*
 
 
 ![Source Verification](https://drive.usercontent.google.com/download?id=1BWd6R-PDyui3ZRmFJ0F6Q74WdW38qR2a)
+:--:
 *Figure 4: Source Verification*
 
 
 ![Cross-Check](https://drive.usercontent.google.com/download?id=1WC-vKLJAq3qFz3UMS3tcW_8mbxcHN-f1)
+:--:
 *Figure 5: Cross-Check over Trustful Media and Fact-Check Databases*
 
 ## General Workflow
