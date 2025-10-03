@@ -109,19 +109,20 @@ BAYANN provides deep insights into news content, source authenticity, and cross-
 
 #### Challenges Faced
 
-**1. Building a Pre-processing Pipeline Aligned with Model Requirements**
+
+#### 1. Building a Pre-processing Pipeline Aligned with Model Requirements
 AraBERT requires inputs in a very specific tokenized and normalized format. To ensure compatibility, we developed a preprocessing pipeline that:
 - Normalizes Arabic text while handling languages-specific features.
 - Removes irrelevant noise while preserving key linguistic cues essential for detecting misinformation.
 - Segments the text properly to match the model's expected input format.
 
-**2. Designing Effective Prompts for the Agent**
+#### 2. Designing Effective Prompts for the Agent
 For source verification and cross-checking, the app integrates Gemini agent with web access tools. The challenge was ensuring **accuracy and consistency** in the outputs. To address this, we experimented with advanced prompting strategies such as:
 - **Chain-of-Thought (CoT)** for structured reasoning.
 - **Role-based prompting** to guide the model’s perspective.
 - **Decoding techniques** (e.g., temperature control) to balance creativity with reliability.
 
-**3. Delivering User-Friendly Analytical Results**
+#### 3. Delivering User-Friendly Analytical Results
 Raw metric values are not always meaningful to end users. The challenge was to **translate complex model outputs into clear, actionable insights**. We solved this by:
 - Designing formulas and threshold ranges for each metric based on research and empirical testing.
 - Categorizing outcomes (e.g., _Normal_, _Suspicious_, _High-Risk_).
